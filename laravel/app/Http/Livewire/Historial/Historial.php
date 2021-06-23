@@ -1,29 +1,26 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Historial;
 
-use App\Categoria;
-use App\Video;
-use App\VideoCategoria;
+use App\Historial as AppHistorial;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class SingleChannel extends Component
-
+class Historial extends Component
 {
     public $perPage = 10;    
     public $orderBy = 'id';
     public $orderAsc = true;
     use WithPagination;
-    public $idcategoria, $categoria;
+    public $usuario_id, $categoria;
     public function render()
     {
-        $this->categoria=Categoria::find($this->idcategoria);
-        $videos=VideoCategoria::search($this->idcategoria)
+       
+        $videos=AppHistorial::search($this->usuario_id)
                 ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
                 ->simplePaginate($this->perPage);
               
-        return view('livewire.single-channel', compact('videos'));
+        return view('livewire.historial.historial', compact('videos'));
     }
 
     public function paginas($cantidad){

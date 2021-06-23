@@ -53,6 +53,20 @@
            }
        )
       }
+
+      function error(valor){
+        swal(
+            {
+                title: 'SINSA ERP',
+                text: valor,
+                type: 'error',
+                showCancelButton: true,
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger m-l-10'
+            }
+        )
+       }
+
       function advertencia(valor){
        swal(
            {

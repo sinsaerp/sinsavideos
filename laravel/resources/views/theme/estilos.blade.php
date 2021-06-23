@@ -15,3 +15,4 @@
       <link rel="stylesheet" href="{{ asset('theme/assets/vendor/owl-carousel/owl.carousel.css') }}">
       <link rel="stylesheet" href="{{ asset('theme/assets/vendor/owl-carousel/owl.theme.css') }}">
       <link href="{{ asset('theme/assets/vendor/sweet-alert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css">
+      <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
