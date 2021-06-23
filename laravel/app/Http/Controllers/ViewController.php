@@ -26,7 +26,7 @@ class ViewController extends Controller
         return view('videos.index');
     }
 
-    public function categorias()
+    public function home()
     {
         return view('categorias.index');
     }
@@ -46,6 +46,11 @@ class ViewController extends Controller
         return view('canal.index', compact('id'));
     }
 
+    public function usuarios()
+    {
+        return view('usuarios.index');
+    }
+
 
 
     public function historial()
@@ -53,9 +58,6 @@ class ViewController extends Controller
         return view('historial.index');
     }
 
-    public function perfil()
-    {
-        return view('perfil.index');
-    }
+    
 
 }

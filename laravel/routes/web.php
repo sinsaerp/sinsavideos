@@ -13,12 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::group(['middleware' => ['guest']], function () {
+
+    Route::get('/','Auth\LoginController@showLoginForm')->name('view.login');
+    Route::get('/login','Auth\LoginController@showLoginForm')->name('login');    
+    Route::post('/login', 'Auth\LoginController@login')->name('login');
+
+
 });
 
-Route::get('subir','ViewController@videos')->name('subir-videos');
+
+Route::group(['middleware' => ['auth']], function () {
+Route::get('subir','ViewController@videos')->name('subir')->middleware('admin');
 Route::get('videos','ViewController@pageVideos')->name('videos');
-Route::get('categorias','ViewController@categorias')->name('categorias');
+Route::get('home','ViewController@home')->name('home');
+Route::get('historial','ViewController@historial')->name('historial');
+Route::get('usuarios','ViewController@usuarios')->name('usuarios')->middleware('admin');
 Route::get('detalle/{id}','ViewController@detalle')->name('detalles');
 Route::get('canal/{id}','ViewController@canal')->name('canal');
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+});

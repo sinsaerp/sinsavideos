@@ -34,8 +34,7 @@ class Videos extends Component
 
         $validatedDate = $this->validate([
             'titulo' => 'required',
-            'descripcion' => 'required',
-            'visible' => 'required',
+            'descripcion' => 'required',            
             'ruta' => 'required',
             'opciones'=>'required:*'
         ]);
@@ -45,8 +44,7 @@ class Videos extends Component
             $obj=new Video();
             $obj->titulo=$this->titulo;
             $obj->descripcion=$this->descripcion;
-            $obj->ruta=$this->ruta;
-            $obj->visible=$this->visible;
+            $obj->ruta=$this->ruta;           
             $obj->save();
             foreach ($this->opciones as $key => $value) {
                 VideoCategoria::create([
